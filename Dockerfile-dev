@@ -1,0 +1,6 @@
+FROM python:3.7-alpine3.7
+COPY requirements.txt requirements.txt
+RUN pip install -r requirements.txt
+RUN mkdir /var/mnt
+WORKDIR /var/mnt
+CMD tail -f /dev/null

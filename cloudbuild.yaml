@@ -1,0 +1,13 @@
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  args: [
+    'build',
+    '-f', 'Dockerfile',
+    '-t','gcr.io/$PROJECT_ID/yaml-template-builder:$SHORT_SHA',
+    '-t','gcr.io/$PROJECT_ID/yaml-template-builder:latest',
+    '.'
+  ]
+images: [
+  'gcr.io/$PROJECT_ID/yaml-template-builder:$SHORT_SHA',
+  'gcr.io/$PROJECT_ID/yaml-template-builder:latest'
+]

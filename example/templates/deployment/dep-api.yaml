@@ -1,0 +1,17 @@
+{% from "env.yaml" import env %}
+apiVersion: batch/v1
+kind: Job
+metadata:
+    name: {{job_name}}
+spec:
+    template:
+        metadata:
+            name: api-job-deployment
+        spec:
+            containers:
+            -   name: python
+{{ env() | indent(width=16) }}
+                image: python:3.7-alpine3.7:{{version}}
+                command: ["python","script.py"]
+            restartPolicy: Never
+    backoffLimit: 1
