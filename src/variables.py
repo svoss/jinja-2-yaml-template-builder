@@ -20,8 +20,9 @@ class Vars():
 			if n == len(path):
 				V[p] = value
 			else:
-			 	V[p] = {}
-			 	V = V[p]
+				if not p in V:
+					V[p] = {}
+				V = V[p]
 			
 	def get_as_dic(self):
 		return self.vars

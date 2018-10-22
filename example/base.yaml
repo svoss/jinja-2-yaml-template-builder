@@ -1,3 +1,4 @@
-php:
+python:
     job_name: test
+    script: script.py
 version: latest

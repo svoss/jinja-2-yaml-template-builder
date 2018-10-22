@@ -2,7 +2,7 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-    name: {{php.job_name}}
+    name: {{python.job_name}}
 spec:
     template:
         metadata:
@@ -12,6 +12,6 @@ spec:
             -   name: python
 {{ env() | indent(width=16) }}
                 image: python:3.7-alpine3.7:{{version}}
-                command: ["python","script.py"]
+                command: ["python",{{python.script}}]
             restartPolicy: Never
     backoffLimit: 1
