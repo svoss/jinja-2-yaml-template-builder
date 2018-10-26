@@ -9,7 +9,18 @@ class Vars():
 		if not os.path.exists(fn):
 			raise ValueError("file '{}' not found".format(fn))
 		with open(fn, encoding='utf8') as io:
-			self.vars.update(load(io))
+			C = load(io)
+			self._recursive_update_dict(self.vars, C)
+
+	def _recursive_update_dict(self, a, b):
+		for k in b:
+			if type(b[k]) is dict:
+				if k not in a:
+					a[k] = {}
+				self._recursive_update_dict(a[k],b[k])
+			else:
+				a[k] = b[k]
+
 
 	def _set_recursive_path(self, path, value):
 		path = path.split(".")
