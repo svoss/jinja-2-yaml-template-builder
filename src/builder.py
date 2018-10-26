@@ -26,7 +26,10 @@ class Builder:
 
 	def build_files(self, files, V):
 		for fn in files:
-			self._build_template(fn, V)
+			if os.path.isdir(fn):
+				self._build_template(fn, V)
+			else:
+				self.build(V, fn)
 
 	def build(self, V, subfolder=''):
 		base = os.path.join(self.template_folder, subfolder)

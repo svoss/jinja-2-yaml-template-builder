@@ -12,7 +12,7 @@ def parse_args():
 	parser.add_argument("--build_dir", default="build/", required=False)
 	parser.add_argument('-a','--arg', action='append', help='List of arguments, arguments will always overwrite config folder files', required=False)
 	parser.add_argument('-c','--config', action='append', help='Config file with parameters', required=False)
-	parser.add_argument('-f','--file', action='append', help='Config files to build, will be read in order of listing and overwrite earlier read files', required=False)
+	parser.add_argument('-f','--file', action='append', help='Limit build to these files or folders, multiple paths supported', required=False)
 	parser.add_argument('-v','--verbose', help="Print text to console", action='store_true', required=False)
 	return parser.parse_args()
 

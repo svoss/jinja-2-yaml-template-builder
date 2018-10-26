@@ -14,7 +14,7 @@ class Writer():
 		if not os.path.isdir(path):
 			path = os.path.dirname(path)
 		if not os.path.exists(path):
-			os.mkdir(path)
+			os.makedirs(path)
 
 	def write_to(self, f, content):
 		if self.to_console:
