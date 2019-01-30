@@ -5,9 +5,11 @@ steps:
     '-f', 'Dockerfile',
     '-t','gcr.io/$PROJECT_ID/kubtmp:v$SHORT_SHA',
     '-t','gcr.io/$PROJECT_ID/kubtmp:latest',
+    '-t','eu.gcr.io/$PROJECT_ID/kubtmp:latest',
     '.'
   ]
 images: [
   'gcr.io/$PROJECT_ID/kubtmp:v$SHORT_SHA',
-  'gcr.io/$PROJECT_ID/kubtmp:latest'
+  'gcr.io/$PROJECT_ID/kubtmp:latest',
+  'eu.gcr.io/$PROJECT_ID/kubtmp:latest'
 ]
